@@ -913,7 +913,7 @@ close_port() {
 		iptables -D INPUT -p tcp --dport $port -j ACCEPT 2>/dev/null
 		iptables -D INPUT -p udp --dport $port -j ACCEPT 2>/dev/null
 
-		# Add shutdown rule
+		# Add a shutdown rule
 		if ! iptables -C INPUT -p tcp --dport $port -j DROP 2>/dev/null; then
 			iptables -I INPUT 1 -p tcp --dport $port -j DROP
 		fi
@@ -2543,7 +2543,7 @@ clear_container_rules() {
 		iptables -D DOCKER-USER -p tcp -d "$container_ip" -j DROP
 	fi
 
-	# Clear the rules that allow the specified IP
+	# Clear the rules that allow specified IPs
 	if iptables -C DOCKER-USER -p tcp -s "$allowed_ip" -d "$container_ip" -j ACCEPT &>/dev/null; then
 		iptables -D DOCKER-USER -p tcp -s "$allowed_ip" -d "$container_ip" -j ACCEPT
 	fi
@@ -2562,7 +2562,7 @@ clear_container_rules() {
 		iptables -D DOCKER-USER -p udp -d "$container_ip" -j DROP
 	fi
 
-	# Clear the rules that allow the specified IP
+	# Clear the rules that allow specified IPs
 	if iptables -C DOCKER-USER -p udp -s "$allowed_ip" -d "$container_ip" -j ACCEPT &>/dev/null; then
 		iptables -D DOCKER-USER -p udp -s "$allowed_ip" -d "$container_ip" -j ACCEPT
 	fi
@@ -4530,7 +4530,7 @@ echo -e "${gl_lv}ROOT login setup is complete!${gl_bai}"
 
 root_use() {
 clear
-[ "$EUID" -ne 0 ] && echo -e "${gl_huang}hint:${gl_bai}This feature requires root user to run!" && break_end && kejilion
+[ "$EUID" -ne 0 ] && echo -e "${gl_huang}hint:${gl_bai}This function requires root user to run!" && break_end && kejilion
 }
 
 
@@ -4798,7 +4798,7 @@ dd_xitong() {
 				;;
 
 			  41)
-				send_stats "Reinstall windows 11"
+				send_stats "Reinstall Windows 11"
 				dd_xitong_2
 				bash InstallNET.sh -windows 11 -lang "cn"
 				reboot
@@ -5332,7 +5332,7 @@ restore_defaults() {
 
 # Website building optimization function
 optimize_web_server() {
-	echo -e "${gl_lv}Switch to website building optimization mode...${gl_bai}"
+	echo -e "${gl_lv}Switch to website construction optimization mode...${gl_bai}"
 
 	echo -e "${gl_lv}Optimize file descriptors...${gl_bai}"
 	ulimit -n 65535
@@ -5411,7 +5411,7 @@ Kernel_optimize() {
 			  cd ~
 			  clear
 			  optimize_web_server
-			  send_stats "Website optimization model"
+			  send_stats "Website optimization mode"
 			  ;;
 		  4)
 			  cd ~
@@ -6139,7 +6139,7 @@ disk_manager() {
 	send_stats "Hard disk management function"
 	while true; do
 		clear
-		echo "Hard drive partition management"
+		echo "Hard disk partition management"
 		echo -e "${gl_huang}This feature is under internal testing and should not be used in a production environment.${gl_bai}"
 		echo "------------------------"
 		list_partitions
@@ -6557,7 +6557,7 @@ linux_tools() {
 
   while true; do
 	  clear
-	  # send_stats "Basic Tools"
+	  # send_stats "Basic tools"
 	  echo -e "basic tools"
 	  echo -e "${gl_kjlan}------------------------"
 	  echo -e "${gl_kjlan}1.   ${gl_bai}curl download tool${gl_huang}★${gl_bai}                   ${gl_kjlan}2.   ${gl_bai}wget download tool${gl_huang}★${gl_bai}"
@@ -7105,7 +7105,7 @@ docker_ssh_migration() {
 			echo -e "${BLUE}Restoring files under /home/docker...${NC}"
 			mkdir -p /home/docker
 			tar -xzf "$BACKUP_DIR/home_docker_files.tar.gz" -C /
-			echo -e "${GREEN}Files under /home/docker have been restored${NC}"
+			echo -e "${GREEN}/home/docker 下的文件已还原完成${NC}"
 		else
 			echo -e "${YELLOW}The backup of the file under /home/docker was not found, skipping...${NC}"
 		fi
@@ -7132,7 +7132,7 @@ docker_ssh_migration() {
 
 		echo -e "${YELLOW}Transferring backup...${NC}"
 		if [[ -z "$TARGET_PASS" ]]; then
-			# Log in with key
+			# Log in using key
 			scp -P "$TARGET_PORT" -o StrictHostKeyChecking=no -r "$LATEST_TAR" "$TARGET_USER@$TARGET_IP:/tmp/"
 		fi
 
@@ -7499,7 +7499,7 @@ linux_test() {
 	  echo -e "${gl_kjlan}14.  ${gl_bai}nxtrace fast backhaul test script"
 	  echo -e "${gl_kjlan}15.  ${gl_bai}nxtrace specifies IP backhaul test script"
 	  echo -e "${gl_kjlan}16.  ${gl_bai}ludashi2020 three network line test"
-	  echo -e "${gl_kjlan}17.  ${gl_bai}i-abc multifunctional speed test script"
+	  echo -e "${gl_kjlan}17.  ${gl_bai}i-abc multi-function speed test script"
 	  echo -e "${gl_kjlan}18.  ${gl_bai}NetQuality network quality check script${gl_huang}★${gl_bai}"
 
 	  echo -e "${gl_kjlan}------------------------"
@@ -8834,7 +8834,7 @@ while true; do
 
 	  echo -e "${gl_kjlan}1.   ${color1}Pagoda panel official version${gl_kjlan}2.   ${color2}aaPanel Pagoda International Version"
 	  echo -e "${gl_kjlan}3.   ${color3}1Panel new generation management panel${gl_kjlan}4.   ${color4}NginxProxyManager visualization panel"
-	  echo -e "${gl_kjlan}5.   ${color5}OpenList multi-store file list program${gl_kjlan}6.   ${color6}Ubuntu Remote Desktop Web Version"
+	  echo -e "${gl_kjlan}5.   ${color5}OpenList multi-store file list program${gl_kjlan}6.   ${color6}Ubuntu Remote Desktop Web Edition"
 	  echo -e "${gl_kjlan}7.   ${color7}Nezha Probe VPS Monitoring Panel${gl_kjlan}8.   ${color8}QB offline BT magnetic download panel"
 	  echo -e "${gl_kjlan}9.   ${color9}Poste.io mail server program${gl_kjlan}10.  ${color10}RocketChat multi-person online chat system"
 	  echo -e "${gl_kjlan}------------------------"
@@ -9172,7 +9172,7 @@ while true; do
 			check_docker_image_update $docker_name
 
 			clear
-			echo -e "postal services$check_docker $update_status"
+			echo -e "postal service$check_docker $update_status"
 			echo "poste.io is an open source mail server solution,"
 			echo "Video introduction: https://www.bilibili.com/video/BV1wv421C71t?t=0.1"
 
@@ -12854,7 +12854,7 @@ EOF
 				echo "time zone switch"
 				echo "------------------------"
 				echo "Asia"
-				echo "1. Shanghai, China time 2. Hong Kong time, China"
+				echo "1.  中国上海时间             2.  中国香港时间"
 				echo "3. Tokyo, Japan time 4. Seoul, South Korea time"
 				echo "5. Singapore time 6. Kolkata, India time"
 				echo "7. Dubai, United Arab Emirates time 8. Sydney, Australia time"
@@ -12868,7 +12868,7 @@ EOF
 				echo "America"
 				echo "21. US Western Time 22. US Eastern Time"
 				echo "23. Canada time 24. Mexico time"
-				echo "25. Brazil Time 26. Argentina Time"
+				echo "25. Brazil time 26. Argentina time"
 				echo "------------------------"
 				echo "31. UTC global standard time"
 				echo "------------------------"
@@ -13177,7 +13177,7 @@ EOF
 					echo -e "${gl_lv}The currently set inbound traffic limit threshold is:${gl_huang}${rx_threshold_gb}${gl_lv}G${gl_bai}"
 					echo -e "${gl_lv}The currently set outbound traffic limiting threshold is:${gl_huang}${tx_threshold_gb}${gl_lv}GB${gl_bai}"
 				else
-					echo -e "${gl_hui}Current limiting shutdown function is not currently enabled${gl_bai}"
+					echo -e "${gl_hui}The current limiting shutdown function is not currently enabled${gl_bai}"
 				fi
 
 				echo
@@ -13730,7 +13730,7 @@ linux_file() {
 				read -e -p "Please enter the file or directory path to copy:" src_path
 				if [ ! -e "$src_path" ]; then
 					echo "Error: File or directory does not exist."
-					send_stats "Failed to copy file or directory: File or directory does not exist"
+					send_stats "Copying file or directory failed: File or directory does not exist"
 					continue
 				fi
 
@@ -13992,7 +13992,7 @@ echo "------------------------"
 echo -e "${gl_zi}V.PS 6.9 dollars per month Tokyo Softbank 2 cores 1G memory 20G hard drive 1T traffic per month${gl_bai}"
 echo -e "${gl_bai}URL: https://vps.hosting/cart/tokyo-cloud-kvm-vps/?id=148&?affid=1355&?affid=1355${gl_bai}"
 echo "------------------------"
-echo -e "${gl_kjlan}More popular VPS offers${gl_bai}"
+echo -e "${gl_kjlan}More popular VPS deals${gl_bai}"
 echo -e "${gl_bai}Website: https://kejilion.pro/topvps/${gl_bai}"
 echo "------------------------"
 echo ""
@@ -14177,7 +14177,7 @@ done
 
 
 k_info() {
-send_stats "k command reference use case"
+send_stats "k command reference examples"
 echo "-------------------"
 echo "Video introduction: https://www.bilibili.com/video/BV1ib421E7it?t=0.1"
 echo "The following is a reference use case for the k command:"
