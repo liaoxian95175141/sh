@@ -2998,12 +2998,12 @@ tmux_run_d() {
 local base_name="tmuxd"
 local tmuxd_ID=1
 
-# 檢查會話是否存在的函數
+# 检查会话是否存在的函数
 session_exists() {
   tmux has-session -t $1 2>/dev/null
 }
 
-# 循環直到找到一個不存在的會話名稱
+# 循环直到找到一个不存在的会话名称
 while session_exists "$base_name-$tmuxd_ID"; do
   local tmuxd_ID=$((tmuxd_ID + 1))
 done
@@ -3130,7 +3130,7 @@ ldnmp_install_status_one() {
 
    if docker inspect "php" &>/dev/null; then
 	clear
-	send_stats "無法再次安裝LDNMP環境"
+	send_stats "无法再次安装LDNMP环境"
 	echo -e "${gl_huang}提示:${gl_bai}建站環境已安裝。無需再次安裝！"
 	break_end
 	linux_ldnmp
@@ -3463,8 +3463,8 @@ ldnmp_web_status() {
 				;;
 			4)
 				send_stats "建立關聯站點"
-				echo -e "為現有的站點再關聯一個新網域用於訪問"
-				read -e -p "請輸入現有的網域名稱:" oddyuming
+				echo -e "为现有的站点再关联一个新域名用于访问"
+				read -e -p "请输入现有的域名: " oddyuming
 				read -e -p "請輸入新網域:" yuming
 				install_certbot
 				install_ssltls
@@ -3703,7 +3703,7 @@ remote_port = ${remote_port}
 EOF
 
 	# 輸出產生的信息
-	echo "服務$service_name已成功加入 frpc.toml"
+	echo "服務$service_name已成功加入到 frpc.toml"
 
 	docker restart frpc
 
@@ -5159,10 +5159,10 @@ clamav() {
 		  while true; do
 				clear
 				echo "clamav病毒掃描工具"
-				echo "影片介紹: https://www.bilibili.com/video/BV1TqvZe4EQm?t=0.1"
+				echo "视频介绍: https://www.bilibili.com/video/BV1TqvZe4EQm?t=0.1"
 				echo "------------------------"
-				echo "是一個開源的防毒軟體工具，主要用於偵測和刪除各種類型的惡意軟體。"
-				echo "包括病毒、木馬、間諜軟體、惡意腳本和其他有害軟體。"
+				echo "是一个开源的防病毒软件工具，主要用于检测和删除各种类型的恶意软件。"
+				echo "包括病毒、特洛伊木马、间谍软件、恶意脚本和其他有害软件。"
 				echo "------------------------"
 				echo -e "${gl_lv}1. 全盤掃描${gl_bai}             ${gl_huang}2. 重要目錄掃描${gl_bai}            ${gl_kjlan}3. 自訂目錄掃描${gl_bai}"
 				echo "------------------------"
@@ -5239,7 +5239,7 @@ optimize_high_performance() {
 	sysctl -w kernel.sched_autogroup_enabled=0 2>/dev/null
 
 	echo -e "${gl_lv}其他優化...${gl_bai}"
-	# 禁用透明大頁面，減少延遲
+	# 禁用透明大页面，减少延迟
 	echo never > /sys/kernel/mm/transparent_hugepage/enabled
 	# 禁用 NUMA balancing
 	sysctl -w kernel.numa_balancing=0 2>/dev/null
@@ -8265,7 +8265,7 @@ linux_ldnmp() {
 	  clear
 	  echo -e "[${gl_huang}6/6${gl_bai}] 資料庫管理"
 	  echo "-------------"
-	  read -e -p "1. 我搭建新站 2. 我搭建老站有資料庫備份：" use_db
+	  read -e -p "1. 我搭建新站        2. 我搭建老站有数据库备份： " use_db
 	  case $use_db in
 		  1)
 			  echo
